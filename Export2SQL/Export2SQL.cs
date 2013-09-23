@@ -133,7 +133,10 @@ namespace Export2SQL
                         throw new Exception(String.Format("Unknown field type {0}!", data.Columns[i].DataType.Name));
                 }
 
-                sqlWriter.WriteLine(",");
+                if (i < data.Columns.Count - 1)
+                    sqlWriter.WriteLine(",");
+                else
+                    sqlWriter.WriteLine();
             }
 
             foreach (DataColumn index in data.PrimaryKey)
