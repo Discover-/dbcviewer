@@ -127,7 +127,7 @@ namespace Export2SQL
                         throw new Exception(String.Format("Unknown field type {0}!", data.Columns[i].DataType.Name));
                 }
 
-                if (i < data.Columns.Count - 1)
+                if (i < data.Columns.Count - 1 || data.PrimaryKey.Length > 0)
                     sqlWriter.WriteLine(",");
                 else
                     sqlWriter.WriteLine();
